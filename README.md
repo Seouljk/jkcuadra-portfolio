@@ -45,5 +45,10 @@ Without `RESEND_API_KEY` the route answers 503 and the form shows the failure in
 - `app/opengraph-image.tsx` and `app/icon.tsx` are generated at build time, so there is no static
   social card or favicon to keep in sync.
 
-Canonical URLs come from `siteUrl` in `lib/content.ts`, which prefers `NEXT_PUBLIC_SITE_URL` and
-otherwise uses the Vercel production URL. Set it when a custom domain is attached.
+Canonical URLs come from `siteUrl` in `lib/content.ts`: `NEXT_PUBLIC_SITE_URL` if set, otherwise
+Vercel's production domain, which is the custom domain once one is assigned. It is read at build
+time, so redeploy after changing domains.
+
+After deploying, verify the site in [Google Search Console](https://search.google.com/search-console)
+and submit `/sitemap.xml`. A DNS TXT record needs no code; for the HTML-tag method, put the code in
+`GOOGLE_SITE_VERIFICATION`.

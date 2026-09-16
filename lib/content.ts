@@ -22,8 +22,9 @@ export const site = {
 
 /**
  * Absolute origin of the deployed site, used for canonical URLs, the sitemap and social cards.
- * Vercel exposes the production URL automatically; set NEXT_PUBLIC_SITE_URL to override it once a
- * custom domain is attached, otherwise the canonical tags point at the *.vercel.app host.
+ * On Vercel this resolves to the production domain — the custom domain once one is assigned, so the
+ * *.vercel.app aliases still name it as canonical. It is inlined at build time, so a domain change
+ * needs a redeploy. NEXT_PUBLIC_SITE_URL overrides it outright.
  */
 const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL;
 const vercelUrl = process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL;

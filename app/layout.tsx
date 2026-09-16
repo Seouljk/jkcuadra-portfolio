@@ -21,6 +21,8 @@ const mono = JetBrains_Mono({
 });
 
 const TITLE = `${site.name} — ${site.role}`;
+// Search Console's "HTML tag" verification code. Unneeded if the domain is verified through DNS instead.
+const GOOGLE_VERIFICATION = process.env.GOOGLE_SITE_VERIFICATION;
 const DESCRIPTION =
   "Full-stack web and mobile developer in Cagayan de Oro, Philippines, building and shipping products with Next.js, React Native and Supabase since 2021.";
 
@@ -49,6 +51,7 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
+  verification: GOOGLE_VERIFICATION ? { google: GOOGLE_VERIFICATION } : undefined,
 };
 
 export const viewport: Viewport = {
