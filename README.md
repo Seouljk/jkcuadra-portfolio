@@ -1,0 +1,49 @@
+# jkcuadra — portfolio
+
+John Kyle Cuadra's portfolio, built from the "Matte Lab" Claude Design (project *John Kyle Cuadra Portfolio*, file `Portfolio.dc.html`).
+
+Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4
+
+## Scripts
+
+- `npm run dev`: local dev server at http://localhost:3000
+- `npm run build`, then `npm start`: production build and server
+- `npm run lint`: ESLint
+
+## Where things live
+
+- `lib/content.ts`: all copy and data on the page.
+- `app/globals.css`: design tokens, the design's keyframes, component styles, and the mobile layout (below 1100px).
+- `components/`: one file per section, plus small client pieces for motion (live clock, word scramble, cursor spotlight).
+
+## Assets
+
+- Portrait: `public/portrait.png` (transparent cut-out, 2:3) → `site.portrait`
+- Project screenshots: `public/projects/` → each project's `screenshot`, with its pixel dimensions
+
+Jack's Lemonade is a hero-only capture, since the site's animations prevented a full-page shot. The frame
+covers a screenshot shorter than itself rather than scrolling it, so that case needs no special handling.
+
+## Contact form
+
+`POST /api/contact` validates the submission, then sends it through [Resend](https://resend.com) to
+`CONTACT_TO_EMAIL`, with `Reply-To` set to the sender so replying goes straight back to them. The
+notification email is built in `lib/email.ts`.
+
+Guards: every field is re-validated and length-capped server-side, all interpolation into the email
+is HTML-escaped, a hidden `company` field traps bots, and one IP is limited to 5 messages per 10
+minutes (best-effort — serverless instances do not share the counter).
+
+Copy `.env.example` to `.env.local` and fill it in; set the same variables in the Vercel project.
+Without `RESEND_API_KEY` the route answers 503 and the form shows the failure inline.
+
+## SEO
+
+- `app/layout.tsx`: titles, description, keywords, canonical, Open Graph and Twitter cards, and
+  JSON-LD (`Person` + `WebSite` + `ProfilePage`) so search engines attribute the site to a person.
+- `app/sitemap.ts` and `app/robots.ts` — `/api/` is disallowed.
+- `app/opengraph-image.tsx` and `app/icon.tsx` are generated at build time, so there is no static
+  social card or favicon to keep in sync.
+
+Canonical URLs come from `siteUrl` in `lib/content.ts`, which prefers `NEXT_PUBLIC_SITE_URL` and
+otherwise uses the Vercel production URL. Set it when a custom domain is attached.
