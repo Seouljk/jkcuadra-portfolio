@@ -72,6 +72,7 @@
   --projalign: center;
   --projinfo: 440px;
   --projtitle: 40px;
+  --shoth: 400px;
   --contactcols: 1.05fr 0.95fr;
   --stmt: 58px;
   --email: 34px;
@@ -117,6 +118,7 @@
     --projalign: stretch;
     --projinfo: auto;
     --projtitle: 28px;
+    --shoth: 230px;
     --contactcols: 1fr;
     --stmt: 30px;
     --email: 22px;
@@ -206,6 +208,14 @@
   100% {
     transform: scaleY(0);
     transform-origin: bottom;
+  }
+}
+@keyframes jk-project-auto-scroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% + var(--shoth)));
   }
 }
 @keyframes jk-exp {
@@ -1246,11 +1256,11 @@
       border-color 0.3s ease;
   }
   .jk-frame:hover {
-    transform: perspective(1400px) rotateX(1.4deg) rotateY(-1.8deg) translateY(-6px);
+    transform: translateY(-6px);
     border-color: rgba(237, 232, 224, 0.2);
   }
   .jk-project--rev .jk-frame:hover {
-    transform: perspective(1400px) rotateX(1.4deg) rotateY(1.8deg) translateY(-6px);
+    transform: translateY(-6px);
   }
   .jk-frame__bar {
     display: flex;
@@ -1281,19 +1291,69 @@
   }
   .jk-frame__view {
     position: relative;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
+    height: var(--shoth);
+    overflow: clip;
   }
   .jk-frame__page {
     position: relative;
     height: 100%;
   }
+  .jk-frame__page--scroll {
+    height: auto;
+    min-height: 100%;
+    transition: transform 7s linear;
+  }
+  .jk-frame__view:hover .jk-frame__page--scroll,
+  .jk-frame__page--scroll:focus-visible {
+    transform: translateY(calc(-100% + var(--shoth)));
+  }
+  .jk-frame__page--scroll:focus-visible {
+    outline: 2px solid var(--jk-signal);
+    outline-offset: -2px;
+  }
   .jk-frame__img {
     display: block;
     width: 100%;
+  }
+  .jk-frame__page--static .jk-frame__img {
     height: 100%;
     object-fit: cover;
     object-position: top center;
+  }
+  .jk-frame__page--scroll .jk-frame__img {
+    height: auto;
+  }
+  .jk-frame__scroll-hint {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    padding: 6px 9px;
+    border: 1px solid rgba(237, 232, 224, 0.14);
+    border-radius: 999px;
+    background: rgba(10, 10, 10, 0.82);
+    color: var(--jk-ash);
+    font: 500 9px/1 var(--jk-mono);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .jk-frame__view:hover .jk-frame__scroll-hint {
+    opacity: 0;
+  }
+  @media (hover: none) and (prefers-reduced-motion: no-preference) {
+    .jk-frame__page--scroll {
+      animation: jk-project-auto-scroll 12s ease-in-out 1.5s infinite alternate;
+    }
+    .jk-frame__scroll-hint {
+      display: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .jk-frame__page--scroll {
+      animation: none !important;
+      transform: none !important;
+    }
   }
   .jk-info {
     flex: 0 1 var(--projinfo);

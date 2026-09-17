@@ -298,7 +298,7 @@ export const stackCards: StackCard[] = [
 ];
 
 /** An enhanced capture of the live site, with its pixel dimensions so the frame reserves the right space. */
-export type Screenshot = { src: string; width: number; height: number };
+export type Screenshot = { src: string; width: number; height: number; scrollable?: boolean };
 
 export type Project = {
   slug: string;
@@ -321,7 +321,7 @@ export const projects: Project[] = [
     description:
       "Marketing site for Aelite Workforce Solutions' global talent platform — \"Global talent. Built for scale.\" — designed in Figma and built with Lottie animations, Vimeo embeds, and Resend email.",
     chips: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Turborepo", "Resend", "Docker", "Railway"],
-    screenshot: { src: "/projects/aelite-live.webp", width: 1672, height: 941 },
+    screenshot: { src: "/projects/aelite-long.webp", width: 1710, height: 6000, scrollable: true },
   },
   {
     slug: "beautipoolr",
@@ -353,7 +353,7 @@ export const projects: Project[] = [
     description:
       "Website for HomeWise, a house construction cost estimator app for the Philippines. Users plan a one-storey home, choose materials and finishes, and see preliminary material and labor costs. Includes scroll-reveal animations, FAQ structured data, and full SEO.",
     chips: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Lucide", "Vercel"],
-    screenshot: { src: "/projects/homewise-live.webp", width: 1672, height: 941 },
+    screenshot: { src: "/projects/homewise-long.webp", width: 1626, height: 6000, scrollable: true },
   },
   {
     slug: "jacks-lemonade",

@@ -14,7 +14,7 @@ export function Projects() {
             <article key={project.slug} className={index % 2 ? "jk-project jk-project--rev" : "jk-project"}>
               <div className="jk-shot">
                 {index === 0 && <CropMarks size={14} color="rgba(255, 181, 71, 0.5)" />}
-                <div className="jk-frame">
+                <div className={`jk-frame ${project.screenshot.scrollable ? "jk-frame--scrollable" : ""}`}>
                   <div aria-hidden="true" className="jk-frame__bar">
                     <span className="jk-frame__dot" />
                     <span className="jk-frame__dot" />
@@ -22,7 +22,12 @@ export function Projects() {
                     <span className="jk-frame__url">{project.domain}</span>
                   </div>
                   <div className="jk-frame__view">
-                    <div className="jk-frame__page">
+                    <div
+                      className={`jk-frame__page ${
+                        project.screenshot.scrollable ? "jk-frame__page--scroll" : "jk-frame__page--static"
+                      }`}
+                      tabIndex={project.screenshot.scrollable ? 0 : undefined}
+                    >
                       <Image
                         src={project.screenshot.src}
                         alt={`Screenshot of ${project.domain}`}
@@ -33,6 +38,11 @@ export function Projects() {
                         className="jk-frame__img"
                       />
                     </div>
+                    {project.screenshot.scrollable && (
+                      <span aria-hidden="true" className="jk-frame__scroll-hint">
+                        Hover to scroll
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
