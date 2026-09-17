@@ -297,8 +297,8 @@ export const stackCards: StackCard[] = [
   },
 ];
 
-/** An enhanced capture of the live site, with its pixel dimensions so the frame reserves the right space. */
-export type Screenshot = { src: string; width: number; height: number; scrollable?: boolean };
+/** A capture of the live site, with its pixel dimensions so the frame reserves the right space. */
+export type Screenshot = { src: string; width: number; height: number };
 
 export type Project = {
   slug: string;
@@ -321,7 +321,7 @@ export const projects: Project[] = [
     description:
       "Marketing site for Aelite Workforce Solutions' global talent platform — \"Global talent. Built for scale.\" — designed in Figma and built with Lottie animations, Vimeo embeds, and Resend email.",
     chips: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Turborepo", "Resend", "Docker", "Railway"],
-    screenshot: { src: "/projects/aelite-long.webp", width: 1710, height: 6000, scrollable: true },
+    screenshot: { src: "/projects/aelite-enhanced.webp", width: 1710, height: 6000 },
   },
   {
     slug: "beautipoolr",
@@ -342,7 +342,7 @@ export const projects: Project[] = [
       "Docker",
       "Railway",
     ],
-    screenshot: { src: "/projects/beautipoolr-live.webp", width: 1672, height: 941 },
+    screenshot: { src: "/projects/beautipoolr-enhanced.webp", width: 1763, height: 1096 },
   },
   {
     slug: "homewise",
@@ -353,7 +353,7 @@ export const projects: Project[] = [
     description:
       "Website for HomeWise, a house construction cost estimator app for the Philippines. Users plan a one-storey home, choose materials and finishes, and see preliminary material and labor costs. Includes scroll-reveal animations, FAQ structured data, and full SEO.",
     chips: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Lucide", "Vercel"],
-    screenshot: { src: "/projects/homewise-long.webp", width: 1626, height: 6000, scrollable: true },
+    screenshot: { src: "/projects/homewise-enhanced.webp", width: 1626, height: 6000 },
   },
   {
     slug: "jacks-lemonade",
@@ -364,6 +364,7 @@ export const projects: Project[] = [
     description:
       "Website for a family lemonade brand serving 30 fresh flavors at malls across Metro Manila, with an interactive menu of five flavor families and scroll effects.",
     chips: ["Next.js", "React", "TypeScript", "CSS", "Claude Design", "Vercel"],
-    screenshot: { src: "/projects/jacks-lemonade-live.webp", width: 1672, height: 941 },
+    // Hero only: the site's animations made a full-page capture impossible.
+    screenshot: { src: "/projects/jacks-lemonade-enhanced.webp", width: 1910, height: 872 },
   },
 ];
