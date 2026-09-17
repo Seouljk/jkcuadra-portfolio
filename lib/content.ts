@@ -17,7 +17,7 @@ export const site = {
   phone: { label: "+63 906 942 6271", href: "tel:+639069426271" },
   github: { label: "github.com/Seouljk", href: "https://github.com/Seouljk" },
   linkedin: { label: "linkedin.com/in/jkcuadra", href: "https://linkedin.com/in/jkcuadra" },
-  portrait: "/portrait.png",
+  portrait: "/portrait-enhanced.webp",
 };
 
 /**
@@ -297,7 +297,7 @@ export const stackCards: StackCard[] = [
   },
 ];
 
-/** A capture of the live site, with its pixel dimensions so the frame reserves the right space. */
+/** An enhanced capture of the live site, with its pixel dimensions so the frame reserves the right space. */
 export type Screenshot = { src: string; width: number; height: number };
 
 export type Project = {
@@ -321,7 +321,7 @@ export const projects: Project[] = [
     description:
       "Marketing site for Aelite Workforce Solutions' global talent platform — \"Global talent. Built for scale.\" — designed in Figma and built with Lottie animations, Vimeo embeds, and Resend email.",
     chips: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Turborepo", "Resend", "Docker", "Railway"],
-    screenshot: { src: "/projects/aelite.webp", width: 570, height: 2000 },
+    screenshot: { src: "/projects/aelite-live.webp", width: 1672, height: 941 },
   },
   {
     slug: "beautipoolr",
@@ -342,7 +342,7 @@ export const projects: Project[] = [
       "Docker",
       "Railway",
     ],
-    screenshot: { src: "/projects/beautipoolr.png", width: 1763, height: 1096 },
+    screenshot: { src: "/projects/beautipoolr-live.webp", width: 1672, height: 941 },
   },
   {
     slug: "homewise",
@@ -353,7 +353,7 @@ export const projects: Project[] = [
     description:
       "Website for HomeWise, a house construction cost estimator app for the Philippines. Users plan a one-storey home, choose materials and finishes, and see preliminary material and labor costs. Includes scroll-reveal animations, FAQ structured data, and full SEO.",
     chips: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Lucide", "Vercel"],
-    screenshot: { src: "/projects/homewise.webp", width: 542, height: 2000 },
+    screenshot: { src: "/projects/homewise-live.webp", width: 1672, height: 941 },
   },
   {
     slug: "jacks-lemonade",
@@ -364,7 +364,6 @@ export const projects: Project[] = [
     description:
       "Website for a family lemonade brand serving 30 fresh flavors at malls across Metro Manila, with an interactive menu of five flavor families and scroll effects.",
     chips: ["Next.js", "React", "TypeScript", "CSS", "Claude Design", "Vercel"],
-    // Hero only: the site's animations made a full-page capture impossible.
-    screenshot: { src: "/projects/jacks-lemonade.png", width: 1910, height: 872 },
+    screenshot: { src: "/projects/jacks-lemonade-live.webp", width: 1672, height: 941 },
   },
 ];

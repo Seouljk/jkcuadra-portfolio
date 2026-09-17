@@ -29,6 +29,7 @@ export function Projects() {
                         width={project.screenshot.width}
                         height={project.screenshot.height}
                         sizes="(max-width: 1099px) 100vw, 780px"
+                        quality={90}
                         className="jk-frame__img"
                       />
                     </div>

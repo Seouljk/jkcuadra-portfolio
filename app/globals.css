@@ -72,7 +72,6 @@
   --projalign: center;
   --projinfo: 440px;
   --projtitle: 40px;
-  --shoth: 400px;
   --contactcols: 1.05fr 0.95fr;
   --stmt: 58px;
   --email: 34px;
@@ -118,7 +117,6 @@
     --projalign: stretch;
     --projinfo: auto;
     --projtitle: 28px;
-    --shoth: 230px;
     --contactcols: 1fr;
     --stmt: 30px;
     --email: 22px;
@@ -1283,25 +1281,19 @@
   }
   .jk-frame__view {
     position: relative;
-    height: var(--shoth);
+    aspect-ratio: 16 / 9;
     overflow: hidden;
   }
-  /* Hovering scrolls the capture to its bottom edge over 7s. */
   .jk-frame__page {
-    min-height: 100%;
-    transition: transform 7s linear;
+    position: relative;
+    height: 100%;
   }
-  .jk-frame__page:hover {
-    transform: translateY(calc(-100% + var(--shoth)));
-  }
-  /* Tall captures keep their natural height and scroll on hover. A short one (Jack's Lemonade is
-     hero-only) is covered up to the frame height, so no empty strip shows and there is nothing to scroll. */
   .jk-frame__img {
     display: block;
     width: 100%;
-    height: auto;
-    min-height: var(--shoth);
+    height: 100%;
     object-fit: cover;
+    object-position: top center;
   }
   .jk-info {
     flex: 0 1 var(--projinfo);

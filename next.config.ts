@@ -3,6 +3,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  images: {
+    qualities: [75, 90],
+  },
   // C:\Dev has its own package-lock.json, so pin the workspace root to this project instead of letting Next infer it.
   turbopack: {
     root: path.join(__dirname),

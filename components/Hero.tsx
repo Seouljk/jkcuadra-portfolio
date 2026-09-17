@@ -91,7 +91,8 @@ export function Hero() {
                 alt={`Portrait of ${site.name}`}
                 fill
                 sizes="(max-width: 1099px) 100vw, 560px"
-                priority
+                preload
+                quality={90}
                 className="jk-portrait__img"
               />
             </div>
