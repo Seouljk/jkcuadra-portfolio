@@ -29,10 +29,8 @@ export function Projects() {
                       tabIndex={project.screenshot.scrollable ? 0 : undefined}
                     >
                       <Image
-                        src={project.screenshot.src}
+                        src={project.screenshot.image}
                         alt={`Screenshot of ${project.domain}`}
-                        width={project.screenshot.width}
-                        height={project.screenshot.height}
                         sizes="(max-width: 1099px) 100vw, 780px"
                         quality={90}
                         className="jk-frame__img"
