@@ -24,6 +24,22 @@ Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4
 Jack's Lemonade is a hero-only capture, since the site's animations prevented a full-page shot. The frame
 covers a screenshot shorter than itself rather than scrolling it, so that case needs no special handling.
 
+## Stack logos
+
+`lib/tech-icons.ts` maps each label in the Stack section to a single-colour logo, drawn in the text
+colour so it follows the chip's amber hover. **When you add a chip in `lib/content.ts`, add its logo
+there too** — a label with no entry still renders, just without a logo.
+
+Most logos come from [simple-icons](https://simpleicons.org) (CC0). Brands it no longer carries come
+from [Material Design Icons](https://pictogrammers.com/library/mdi/) (VS Code; Apache-2.0),
+[CoreUI Brands](https://coreui.io/icons/brands/) (Canva; CC0) and [Remix Icon](https://remixicon.com)
+(OpenAI, shown for Codex; Apache-2.0). Items with no openly licensed logo borrow their parent
+platform's (WPForms and Wordfence show WordPress, BeautifulSoup shows Python) or use a generic Material
+Design glyph (Bluehost, DNS & SSL, Passkeys). All logos are trademarks of their respective owners.
+
+The icons render only in server components, so none of simple-icons' ~3,400 logos reach the browser
+bundle. Keep `components/TechIcon.tsx` out of client components to preserve that.
+
 ## Contact form
 
 `POST /api/contact` validates the submission, then sends it through [Resend](https://resend.com) to

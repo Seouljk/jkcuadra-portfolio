@@ -389,6 +389,16 @@
   .jk-chip--sunk {
     background: var(--jk-ink-850);
   }
+  .jk-chip--icon {
+    align-items: center;
+    gap: 5px;
+  }
+  /* Stack logos: sized to the text beside them and coloured by it, so the amber hover reaches the logo too. */
+  .jk-techicon {
+    flex: none;
+    width: 1.1em;
+    height: 1.1em;
+  }
   .jk-tag {
     display: inline-flex;
     align-items: center;
@@ -403,6 +413,7 @@
   .jk-pill {
     display: inline-flex;
     align-items: center;
+    gap: 8px;
     padding: 11px 16px;
     border: 1px solid var(--jk-hairline);
     border-radius: 6px;

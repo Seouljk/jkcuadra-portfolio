@@ -1,9 +1,22 @@
 import { marqueeRows, stackCards, type StackCard } from "@/lib/content";
 import { Meter } from "./Meter";
 import { SectionHeader } from "./SectionHeader";
-import { ChipList } from "./ui";
+import { TechIcon } from "./TechIcon";
 
-const CHIP = "jk-chip jk-chip--sunk jk-hoverable";
+const CHIP = "jk-chip jk-chip--sunk jk-chip--icon jk-hoverable";
+
+function TechChips({ items }: { items: string[] }) {
+  return (
+    <>
+      {items.map((item) => (
+        <span key={item} className={CHIP}>
+          <TechIcon name={item} />
+          {item}
+        </span>
+      ))}
+    </>
+  );
+}
 
 function SkillCard({ card }: { card: StackCard }) {
   // The full-width card lays its intro and chips side by side.
@@ -19,7 +32,7 @@ function SkillCard({ card }: { card: StackCard }) {
           <p className="jk-skill__desc">{card.description}</p>
         </div>
         <div className="jk-skill__chips jk-skill__chips--wide">
-          <ChipList items={card.chips} className={CHIP} />
+          <TechChips items={card.chips} />
         </div>
       </div>
     );
@@ -34,7 +47,7 @@ function SkillCard({ card }: { card: StackCard }) {
       <Meter level={card.level} label={card.levelLabel} />
       <p className="jk-skill__desc">{card.description}</p>
       <div className="jk-skill__chips">
-        <ChipList items={card.chips} className={CHIP} />
+        <TechChips items={card.chips} />
       </div>
     </div>
   );
@@ -54,6 +67,7 @@ export function Stack() {
             <div className={rowIndex === 0 ? "jk-marquee__track" : "jk-marquee__track jk-marquee__track--rev"}>
               {[...row, ...row].map((item, itemIndex) => (
                 <span key={itemIndex} className={rowIndex === 0 ? "jk-pill" : "jk-pill jk-pill--sunk"}>
+                  <TechIcon name={item} />
                   {item}
                 </span>
               ))}
